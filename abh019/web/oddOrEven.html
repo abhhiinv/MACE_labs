@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Odd or Even</title>
+    <style>
+
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h2 align="center">Enter the number to find if it is odd or even!!</h2>
+        <form name="unnikuttan">
+        <label align="center">Enter the number</label>
+        <input align="center" name="number" id="num" type="int">
+        <button type="button" align="center" onclick="oddOrEven()">Submit</button>
+        <p align="center" id="result"></p>
+        </form>
+    </div>
+<script>
+    function oddOrEven(){
+        let num =document.forms.unnikuttan.num.value;
+        num =parseInt(num);
+        if(isNaN(num)){
+            document.getElementById('num').innerHTML="Enter a valid number";
+        }
+        if((num%2)===0){
+            document.getElementById('result').innerHTML="The number is even";
+        }else{
+            document.getElementById('result').innerHTML="The number is odd";
+        }
+    }
+</script>
+</body>
+</html>

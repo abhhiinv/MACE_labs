@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Form Valid</title>
+        <style>
+            body{
+                background-color:#454545;
+                height:100vh;
+            }
+            h2{
+                font-size:40px;
+                padding:3rem;
+                text-align:center;
+                color:antiquewhite;
+            }
+            .container{
+                display:flex;
+                content:justify;
+                padding:2rem;
+                margin:2rem 10rem;
+                background-color:#ccc;
+                border:solid 2px #000;
+                border-radius: 10px;
+            }
+            form{
+                text-align:left;
+            }
+            button{
+                margin:10px 0 0 4rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Registration Form</h2>
+        
+            <form id="regForm" onsubmit="return validFr">
+                <label>Username</label>
+                    <input type="text" id="usrnm" name="username" placeholder="Enter username"><br><br>
+                <label>Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email"><br><br>
+                <label>Password</label>
+                    <input type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
+                <label>Confirm Password</label>
+                    <input type="password" id="cpwd" name="confirmPassword" placeholder="Confirm Password"><br><br>
+                               
+                    <input type="submit" value="register" >
+                
+            </form>
+            <p id="error" style="color:red;"></p>
+        
+        <script>
+            function validFr(){
+                let usrnm=document.getElementById('usrnm').value.trim();
+                let email=document.getElementById('email').value.trim();
+                let pwd=document.getElementById('pwd').value;
+                let cpwd=document.getElementById('cpwd').value;
+                let error=document.getElementById('error');
+                error.innerText="";
+                if(usrnm==""){
+                    error.innerText="Username can't be empty";
+                    return false;
+                }
+                let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if(!email.match(emailPattern)){
+                    error.innerText="Please enter valid password";
+                    return false;
+                }
+                if(pwd.length<6){
+                    error.innerText="Password must contain atleast 6 characters";
+                    return false;
+                }
+                if(pwd!==cpwd){
+                    error.innerText="Passwords don't match";
+                    return false;
+                }
+                alert("Registration success");
+                return true;
+            }
+        </script>
+    </body>
+</html>

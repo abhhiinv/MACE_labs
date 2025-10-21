@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cooking & Cleaning</title>
+    <h2 align="center">Cooking & Cleaning</h2>
+    <script>
+    function cook(){
+        console.log("Cooking started...");
+        setTimeout(()=>{
+            console.log("Cooking Finished!!");
+        },3000);
+    }
+    function clean(){
+        console.log("Cleaning started...");
+    }
+    function task(){
+        const output=document.getElementById("output");
+        output.innerHTML=cook(),clean();
+    }
+    </script>
+    </head>
+    <body>
+        <button onclick="task()">Click Here</button>
+        <div id="output"></div>
+    </body>
+</html>

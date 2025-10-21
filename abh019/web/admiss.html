@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Admission Details</title>
+</head>
+<style>
+    body{
+        padding:3rem;
+        background-color:#b5f9c2;
+    }
+    fieldset{
+        background-color:#d6ffdb;
+    }
+    h1{
+        color:rgb(35, 25, 132);
+        font-size: 50px;
+    }
+    [name="phone"]{
+        width:340px;
+    }
+    [name="email"]{
+        width:340px;
+    }
+    h3{
+        font-size: 30px;
+    }
+    tr{
+        font-size:20px;
+    }
+    p{
+        font-size:20px;
+    }
+    .btn{
+        background-color:rgb(225, 225, 123);
+        border:1px;
+        border-color:black;
+    }
+
+
+</style>
+<body>
+    <b><h1 align="center">Admission Registration Form</h1></b>
+    <br>
+    <fieldset align="center" class="heading"><legend><h3><b>Personal Info</b></h3></legend>
+    <p align="center"><b>Course :</b>
+        <input type="radio" name="course" >BA
+        <input type="radio" name="course" >B.Sc
+        <input type="radio" name="course" >BCA
+    </p>
+    
+    <table align="center" border="0" width="100%" cellpadding="10">
+        <tr>
+            <td><label><b>Name :</b></label></td>
+            <td><textarea rows="1" cols="40" type="text"></textarea></td>
+        </tr>
+        <tr>
+           <td><label><b>Date of Birth :</b></label></td>
+            <td><input type="date" ></td>
+        </tr>
+        <tr>
+            <td><b>Gender :</b></td>
+            <td>
+                <input type="radio" name="gen">Male
+                <input type="radio" name="gen">Female
+                <input type="radio" name="gen">Other
+            </td>
+        </tr>
+        <tr>
+            <td><label><b>Address :</b></label></td>
+            <td><textarea rows="5" cols="40"></textarea></td>
+        </tr>
+        <tr>
+            <td><b>Phone Number :</b></td>
+            <td><input type="tel" name="phone" ></td>
+        </tr>
+        <tr>
+            <td><b>Email :</b></td>
+            <td><input type="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><b>Guardian's Name :</b></td>
+            <td><textarea rows="1"cols="40"></textarea></td>
+        </tr>
+        <tr>
+            <td><b>Hobbies :</b></td>
+            <td>
+                <input type="checkbox"name="hobby">Sports
+                <input type="checkbox"name="hobby">Music
+                <input type="checkbox"name="hobby">Dance
+                <input type="checkbox"name="hobby">Others
+            </td>
+        </tr>
+        <tr>
+            <td><b>Extra Curricular Activities :</b></td>
+            <td><textarea name="extra" rows="3" cols="40"></textarea></td>
+        </tr>
+
+    </table>
+    </fieldset>
+    <br>
+    <fieldset align="center">
+    <legend><h3 ><b>For Office use ONLY</b></h3></legend>
+    <br>
+        <table border="1" width="100%" cellspacing="0" cellpadding="10">
+            <tr>
+                <td><b>Admission No :</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Course Code :</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Verified by :</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Remarks :</b></td>
+                <td></td>
+            </tr>
+        </table>
+        <br>
+    </fieldset>
+    <br>    
+    <center><input type="Submit" , class="btn"></center>
+    
+</body>
+</html>
