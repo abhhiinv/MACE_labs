@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Bomb</title>
+    <h2 align="center">The Bomb is about to  explode</h2>
+    <style>
+    body {
+        padding :2rem;
+        text-align:center;
+        align-content:center;
+        background-color: rgb(246, 119, 40);
+    }
+    button{
+        padding: 2rem;
+    }
+    </style>
+    <script>
+    function blast(){
+        setTimeout(()=>{
+        document.write(`<p style="text-align:center;"><br>IN 3...<br></p>`);
+        },1000);
+        setTimeout(()=>{
+        document.write(`<p style="text-align:center;"><br>2...<br></p>`);
+        },2000);
+        setTimeout(()=>{
+        document.write(`<p style="text-align:center;"><br>1...<br></p>`);
+        },3000);
+        setTimeout(()=>{
+        document.write(`<h1 style="text-align:center;"><br>HAAPPYY BIRTHDAAYYYY!!!!<br></h1>`);
+        },4000);
+    }
+
+    </script>
+    </head>
+    <body class="bdy">
+        <button onclick="blast()">Click Here</button>
+        <div id="output"></div>
+    </body>
+</html>
