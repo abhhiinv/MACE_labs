@@ -1,39 +1,102 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>The Bomb</title>
-    <h2 align="center">The Bomb is about to  explode</h2>
-    <style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Bomb 💣</title>
+  <style>
     body {
-        padding :2rem;
-        text-align:center;
-        align-content:center;
-        background-color: rgb(246, 119, 40);
-    }
-    button{
-        padding: 2rem;
-    }
-    </style>
-    <script>
-    function blast(){
-        setTimeout(()=>{
-        document.write(`<p style="text-align:center;"><br>IN 3...<br></p>`);
-        },1000);
-        setTimeout(()=>{
-        document.write(`<p style="text-align:center;"><br>2...<br></p>`);
-        },2000);
-        setTimeout(()=>{
-        document.write(`<p style="text-align:center;"><br>1...<br></p>`);
-        },3000);
-        setTimeout(()=>{
-        document.write(`<h1 style="text-align:center;"><br>HAAPPYY BIRTHDAAYYYY!!!!<br></h1>`);
-        },4000);
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a3c, #ff6b6b);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
     }
 
-    </script>
-    </head>
-    <body class="bdy">
-        <button onclick="blast()">Click Here</button>
-        <div id="output"></div>
-    </body>
+    h2 {
+      font-size: 2rem;
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    button {
+      padding: 1.2rem 2.5rem;
+      font-size: 1.2rem;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      background-color: #ff2e63;
+      transform: scale(1.1);
+    }
+
+    #output {
+      font-size: 3rem;
+      margin-top: 2rem;
+      font-weight: bold;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Explosion Animation */
+    .boom {
+      animation: explosion 1s ease-in-out forwards;
+    }
+
+    @keyframes explosion {
+      0% { background: #ff6b6b; transform: scale(1); }
+      50% { background: #ffe66d; transform: scale(1.2); }
+      100% { background: #222; transform: scale(2); opacity: 0; }
+    }
+  </style>
+
+  <script>
+    function blast() {
+      const output = document.getElementById('output');
+      document.body.style.background = 'linear-gradient(135deg, #ff9a3c, #ff6b6b)';
+      output.innerHTML = '';
+
+      const countdown = ["IN 3...", "2...", "1..."];
+      countdown.forEach((text, i) => {
+        setTimeout(() => {
+          output.innerHTML = text;
+        }, (i + 1) * 1000);
+      });
+
+      setTimeout(() => {
+        document.body.classList.add("boom");
+        setTimeout(() => {
+          document.body.classList.remove("boom");
+          document.body.style.background = "linear-gradient(135deg, #00c6ff, #0072ff)";
+          output.innerHTML = `<h1 style="font-size:3rem; animation:fadeIn 1s ease;">🎉 HAPPY BIRTHDAY!!! 🎂🎊</h1>`;
+        }, 1000);
+      }, 4000);
+    }
+  </script>
+</head>
+
+<body>
+  <h2>The Bomb is about to explode 💣</h2>
+  <button onclick="blast()">💥 Click Here 💥</button>
+  <div id="output"></div>
+</body>
 </html>
