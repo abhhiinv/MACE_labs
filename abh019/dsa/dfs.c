@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAX_VERTICES 20
 
-// Global variables for the DFS function
+// Global variables
 int adj[MAX_VERTICES][MAX_VERTICES]; // Adjacency Matrix
 int visited[MAX_VERTICES];          // Array to keep track of visited vertices
 int n;                              // Number of vertices
@@ -17,6 +17,7 @@ void dfs(int start_vertex) {
     printf("%d -> ", start_vertex);
     
     // 3. Recurse for all unvisited adjacent vertices
+    // We check the adjacency matrix for neighbors
     for (j = 0; j < n; j++) {
         // Check if there is an edge AND the neighbor is not visited
         if (adj[start_vertex][j] == 1 && visited[j] == 0) {
@@ -26,13 +27,19 @@ void dfs(int start_vertex) {
 }
 
 void main() {
-    int i, j, start_node;
+    int i, j, e; // 'e' for number of edges
+    int u, v;    // u and v for edge endpoints
+    int start_node;
     
-    printf("\n*****DEPTH FIRST SEARCH (DFS) TRAVERSAL*****\n");
+    printf("\n*****DEPTH FIRST SEARCH (DFS) TRAVERSAL (u-v Input)*****\n");
     
     // 1. Get graph size
     printf("\nEnter the number of vertices (max %d): ", MAX_VERTICES);
     scanf("%d", &n);
+    
+    // Get number of edges
+    printf("Enter the number of edges: ");
+    scanf("%d", &e);
     
     // Initialize the adjacency matrix and visited array
     for (i = 0; i < n; i++) {
@@ -42,12 +49,21 @@ void main() {
         visited[i] = 0;
     }
     
-    // 2. Read the Adjacency Matrix
-    printf("Enter the Adjacency Matrix (0 or 1 for each connection):\n");
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            printf("Edge from %d to %d: ", i, j);
-            scanf("%d", &adj[i][j]);
+    // 2. Read the edges using the u-v method (Edge List)
+    printf("Enter the edges (u v):\n");
+    for (i = 0; i < e; i++) {
+        // Read the two connected vertices
+        printf("Edge %d: ", i + 1);
+        scanf("%d %d", &u, &v);
+        
+        // Add the edge to the Adjacency Matrix
+        // This assumes an undirected graph (connection in both directions)
+        if (u >= 0 && u < n && v >= 0 && v < n) {
+            adj[u][v] = 1;
+            adj[v][u] = 1;
+        } else {
+            printf("Error: Invalid vertex number. Skipping edge.\n");
+            i--; // Re-read this edge
         }
     }
     
