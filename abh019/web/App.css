@@ -1,0 +1,98 @@
+/* Basic page styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #565859;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper around everything */
+.StudentList {
+  background: #acabab;
+  margin: 8rem 40rem;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.StudentList h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input form */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 8px 14px;
+  margin-left: 10px;
+  background-color: #ea8e03;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #cb7504;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: #fafafa;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  color: #333;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Make everything responsive */
+@media (max-width: 480px) {
+  .StudentList {
+    width: 90%;
+    padding: 20px;
+  }
+
+  input[type="text"] {
+    width: 65%;
+  }
+
+  button {
+    padding: 8px 10px;
+  }
+}
