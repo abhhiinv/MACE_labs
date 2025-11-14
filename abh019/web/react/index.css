@@ -12,6 +12,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.my-btn {
+  padding: 8px 15px;
+  margin: 25px auto;
+  display: block;
+}
+div{
+  margin-left: 10rem;
+}
+.boom {
+  animation: flash 0.1s alternate 10;
+}
+
+@keyframes flash {
+  from { background: #000000; }
+  to { background: #00ff41; }
+}
+
+
+
 
 a {
   font-weight: 500;
