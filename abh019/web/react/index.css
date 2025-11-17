@@ -21,7 +21,7 @@ div{
   margin-left: 10rem;
 }
 .boom {
-  animation: flash 0.1s alternate 10;
+  animation: flash 0.05s alternate 8;
 }
 
 @keyframes flash {
