@@ -1,4 +1,4 @@
-# MACE_labs 
+# MACE_labs 💻 | MCA Academic Lab
 
 This repository archives my completed lab assignments and projects from my Master of Computer Applications (MCA) curriculum.
 
