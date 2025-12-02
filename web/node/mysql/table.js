@@ -1,4 +1,4 @@
-const con = require('./connection_1.js');
+const con = require('./connect.js');
 const cr_TB =`
 CREATE TABLE IF NOT EXISTS t_db.students(
     rollno INT PRIMARY KEY,
