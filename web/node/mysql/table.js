@@ -1,6 +1,6 @@
 const con = require('./connect.js');
 const cr_TB =`
-CREATE TABLE IF NOT EXISTS t_db.students(
+CREATE TABLE IF NOT EXISTS T_db.students(
     rollno INT PRIMARY KEY,
     name VARCHAR(15)
 )
