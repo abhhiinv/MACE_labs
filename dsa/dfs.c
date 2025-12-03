@@ -80,6 +80,6 @@ void main() {
     
     // 4. Perform DFS
     printf("\nDFS Traversal Order:\n");
-    dfs(start_node+1);
+    dfs(start_node);
     printf("END\n\n");
 }
