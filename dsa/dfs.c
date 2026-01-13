@@ -69,7 +69,7 @@ void main() {
     }
     
     // 3. Get the starting vertex
-    printf("\nEnter the starting vertex for DFS (0 to %d): ", n);
+    printf("\nEnter the starting vertex for DFS (1 to %d): ", n);
     scanf("%d", &start_node);
     
     // Check if start node is valid
@@ -80,6 +80,6 @@ void main() {
     
     // 4. Perform DFS
     printf("\nDFS Traversal Order:\n");
-    dfs(start_node - 1);
+    dfs(start_node);
     printf("END\n\n");
 }
