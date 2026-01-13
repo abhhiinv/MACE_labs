@@ -1,85 +1,80 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX 20
 
 // Global variables
-int adj[MAX][MAX]; // Adjacency Matrix
-int visited[MAX];          // Array to keep track of visited vertices
-int n;                              // Number of vertices
+int adj[MAX][MAX];     // Adjacency Matrix (0..n-1)
+int visited[MAX];      // Visited array (0..n-1)
+int n;                 // Number of vertices
 
 // Function to perform Depth First Search
 void dfs(int start_vertex) {
     int j;
-    
-    // 1. Mark the current vertex as visited
+
     visited[start_vertex] = 1;
-    
-    // 2. Print the current vertex
-    printf("%d -> ", start_vertex);
-    
-    // 3. Recurse for all unvisited adjacent vertices
-    // We check the adjacency matrix for neighbors
+
+    // Print as 1-based to match user input
+    printf("%d -> ", start_vertex + 1);
+
     for (j = 0; j < n; j++) {
-        // Check if there is an edge AND the neighbor is not visited
         if (adj[start_vertex][j] == 1 && !visited[j]) {
-            dfs(j); // Recursive call
+            dfs(j);
         }
     }
 }
 
-void main() {
-    int i, j, e; // 'e' for number of edges
-    int u, v;    // u and v for edge endpoints
-    int start_node;
-    
+int main(void) {  // Standard hosted C signature [web:1]
+    int i, j, e;
+    int u, v;
+    int start_node; // user enters 1..n
+
     printf("\n*****DEPTH FIRST SEARCH (DFS) TRAVERSAL*****\n");
-    
-    // 1. Get graph size
+
     printf("\nEnter the number of vertices (max %d): ", MAX);
     scanf("%d", &n);
-    
-    // Get number of edges
+
+    if (n < 1 || n > MAX) {
+        printf("Error: Number of vertices must be between 1 and %d.\n", MAX);
+        return 0;
+    }
+
     printf("Enter the number of edges: ");
     scanf("%d", &e);
-    
-    // Initialize the adjacency matrix and visited array
+
+    // Initialize adjacency matrix and visited array
     for (i = 0; i < n; i++) {
+        visited[i] = 0;
         for (j = 0; j < n; j++) {
             adj[i][j] = 0;
         }
-        visited[i] = 0;
     }
-    
-    // 2. Read the edges using the u-v method (Edge List)
-    printf("Enter the edges:\n");
-    printf("u v\n");
+
+    // Read edges (1..n from user)
+    printf("Enter the edges (u v) where u and v are in 1..%d:\n", n);
     for (i = 0; i < e; i++) {
-        // Read the two connected vertices
         printf("Edge %d: ", i + 1);
         scanf("%d %d", &u, &v);
-        
-        // Add the edge to the Adjacency Matrix
-        // This assumes an undirected graph (connection in both directions)
+
         if (u >= 1 && u <= n && v >= 1 && v <= n) {
-            adj[u-1][v-1] = 1;
-            adj[v-1][u-1] = 1;
+            adj[u - 1][v - 1] = 1;
+            adj[v - 1][u - 1] = 1; // undirected
         } else {
-            printf("Error: Invalid vertex number (1-%d). Skipping edge.\n",n);
-            i--; // Re-read this edge
+            printf("Error: Invalid vertex number (1-%d). Re-enter this edge.\n", n);
+            i--; // retry this edge
         }
     }
-    
-    // 3. Get the starting vertex
+
+    // Starting vertex (1..n from user)
     printf("\nEnter the starting vertex for DFS (1 to %d): ", n);
     scanf("%d", &start_node);
-    
-    // Check if start node is valid
+
     if (start_node < 1 || start_node > n) {
         printf("Invalid starting vertex.\n");
-        return;
+        return 0;
     }
-    
-    // 4. Perform DFS
+
     printf("\nDFS Traversal Order:\n");
-    dfs(start_node);
+    dfs(start_node - 1);   // convert to 0-based
     printf("END\n\n");
+
+    return 0;
 }
