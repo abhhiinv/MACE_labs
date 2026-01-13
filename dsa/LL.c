@@ -10,7 +10,7 @@ node *head = NULL;
 node *temp = NULL;
 
 node *create(int value){
-    node *new = (node*)malloc(sizeof(new));
+    node *new = (node*)malloc(sizeof(node));
     new->data = value;
     new->next = NULL;
     return new;
