@@ -59,7 +59,7 @@ void main() {
         
         // Add the edge to the Adjacency Matrix
         // This assumes an undirected graph (connection in both directions)
-        if (u > 0 && u <= n && v > 0 && v <= n) {
+        if (u >= 1 && u <= n && v >= 1 && v <= n) {
             adj[u-1][v-1] = 1;
             adj[v-1][u-1] = 1;
         } else {
@@ -73,13 +73,13 @@ void main() {
     scanf("%d", &start_node);
     
     // Check if start node is valid
-    if (start_node < 0 || start_node > n) {
+    if (start_node < 1 || start_node > n) {
         printf("Invalid starting vertex.\n");
-        return;
+        return 0;
     }
     
     // 4. Perform DFS
     printf("\nDFS Traversal Order:\n");
-    dfs(start_node);
+    dfs(start_node - 1);
     printf("END\n\n");
 }
