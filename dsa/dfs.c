@@ -75,7 +75,7 @@ void main() {
     // Check if start node is valid
     if (start_node < 1 || start_node > n) {
         printf("Invalid starting vertex.\n");
-        return 0;
+        return;
     }
     
     // 4. Perform DFS
