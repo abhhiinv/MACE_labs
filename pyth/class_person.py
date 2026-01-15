@@ -15,13 +15,13 @@ class Student(Person,Marks):
         super().__init__(name, rollNo)
         Marks.__init__(self,maths,comp)
     def get_percentage(self):
-        return (self.maths + self.computer) / 2
+        return (self.maths + self.comp) / 2
     def disp(self):
         percent = self.get_percentage()
         print('Student Details')
-        Student.disp(self)
+        Person.disp(self)
         Marks.disp(self)
-        print(f'Percentage : {self.percent}')
+        print(f'Percentage : {percent}')
         if percent >= 50:
             print(f'Result : Pass')
         else:
@@ -34,4 +34,6 @@ s2.disp()
 p1=s1.get_percentage()
 p2=s2.get_percentage()
 if p1>p2:
-    print(f'{s1.name} has higher percentage {p1}% than')
+    print(f'{s1.name} has higher percentage {p1}% than {s2.name} ({p2}%)')
+else:
+    print(f'{s2.name} had higher percentage ({p2}%) than {s1.name} ({p1}%)')
