@@ -24,10 +24,10 @@ To explore any project, clone the repository and navigate to the desired folder:
     ```
 2.  **Navigate:**
     ```bash
-    cd MACE_labs/dsa 
+    cd MACE_labs/SEM 1/dsa 
     # OR
-    cd MACE_labs/web
+    cd MACE_labs/SEM 1/web
     #OR
-    cd MACE_labs/pyth
+    cd MACE_labs/SEM 1/pyth
     ```
 3.  Refer to any internal documentation or comments within the code for specific instructions.
