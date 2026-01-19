@@ -20,7 +20,7 @@ To explore any project, clone the repository and navigate to the desired folder:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/abhhiinv/MACE_labs.git](https://github.com/abhhiinv/MACE_labs.git)
+    git clone https://github.com/abhhiinv/MACE_labs.git
     ```
 2.  **Navigate:**
     ```bash
