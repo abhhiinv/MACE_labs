@@ -1,0 +1,1 @@
+select Category,SUM (Quantity) as Total_Item from Products group by Category;

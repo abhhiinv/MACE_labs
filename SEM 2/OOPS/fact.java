@@ -7,9 +7,11 @@ public class fact{
         return n*factorial(n-1);
     }
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int n = sc.nextInt();
-        System.out.println("Factorial of "+ n +" = "+factorial(n));
+        
+        try(Scanner sc = new Scanner(System.in)){
+            System.out.println("Enter a number");
+            int n = sc.nextInt();
+            System.out.println("Factorial of "+ n +" = "+factorial(n));
+        }
     }
 }

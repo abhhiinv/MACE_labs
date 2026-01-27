@@ -1,0 +1,1 @@
+select Name,Category as Type,Price from Product;

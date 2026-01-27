@@ -1,0 +1,1 @@
+delete from Products where Name='Book';
