@@ -1,76 +1,86 @@
-import java.util.Scanner;
 class Student {
-    int Roll_no;
-    String Name;
+    int rollNo;
+    String name;
     int marks;
     static int count;
-    public Student(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the roll number : ");
-        Roll_no = sc.nextInt();
-        System.out.println("Enter the name : ");
-        Name = sc.nextLine();
-        System.out.println("Enter the mark : ");
-        marks = sc.nextInt();
+
+    // Default constructor
+    public Student() {
+        this.rollNo = 0;
+        this.name = "Unknown";
+        this.marks = 0;
         count++;
     }
-    public Student(int Roll_no,String Name,int marks){
-        this.Roll_no = Roll_no;
-        this.Name = Name;
-        this.marks = marks;
-    }
-    public Student(Student other){
-        this.Roll_no = other.Roll_no;
-        this.Name = other.Name;
-        this.marks = other.marks;
-    }
-    void show(){
-        System.out.println("Roll_no : "+Roll_no);
-        System.out.println("Name : "+Name);
-        System.out.println("Marks : "+marks);
-    }
-    static void showCount(){
-        System.out.println("Count : "+count);
-    }
-    void compare(Student other){
-        if(this.marks > other.marks){
-            System.out.println(this.Name +" has higher marks than "+other.Name);
-        }else if(this.marks<other.marks){
-            System.out.println(other.Name +" has higher marks than "+this.Name);
-        }else{
-            System.out.println(this.Name +" and "+other.Name +" has same marks");
-        }
-        showCount();
-    }
-}
 
-class studentDemo{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of students : ");
-        int n = sc.nextInt();
-        Student s[] = new Student[n];
-        for(int i=0; i<n; i++){
-            System.out.println("Enter the details of student "+(i+1));
-            s[i] = new Student();
-        }
-        sort(s,n);
-        s[0].compare(s[1]);
+    // Parameterized constructor
+    public Student(int rollNo, String name, int marks) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.marks = marks;
+        count++;
     }
-    static void sort(Student[] s, int n){
-        for(int i=0; i<n-1; i++){
-            for(int j=i+1; j<n; j++){
-                if(s[i].marks > s[j].marks){
-                    Student temp = s[i];
-                    s[i] = s[j];
-                    s[j] = temp;
+
+    // Copy constructor
+    public Student(Student other) {
+        this.rollNo = other.rollNo;
+        this.name = other.name;
+        this.marks = other.marks;
+        count++;
+    }
+
+    void show() {
+        System.out.println("Roll: " + rollNo + " | Name: " + name + " | Marks: " + marks);
+    }
+
+    static void showCount() {
+        System.out.println("Total Students: " + count);
+    }
+
+    void compare(Student other) {
+        if (this.marks > other.marks) {
+            System.out.println(this.name + " has higher marks than " + other.name);
+        } else if (this.marks < other.marks) {
+            System.out.println(other.name + " has higher marks than " + this.name);
+        } else {
+            System.out.println(this.name + " and " + other.name + " have same marks");
+        }
+    }
+
+    static void sort(Student[] students) {
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[i].marks < students[j].marks) {
+                    Student temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
                 }
             }
         }
-        System.out.println("Rank List : ");
-        for(int i=0; i<n; i++){
-            System.out.println("Rank "+(i+1)+" : ");
-            s[i].show();
+    }
+
+    public static void main(String[] args) {
+        // Create N objects using different constructors
+        Student s1 = new Student(101, "Alice", 85);
+        Student s2 = new Student(102, "Bob", 92);
+        Student s3 = new Student(103, "Charlie", 78);
+        Student s4 = new Student(s1);  // Copy constructor demo
+        
+        Student[] students = {s1, s2, s3, s4};
+
+        // Generate rank list
+        sort(students);
+        System.out.println("Rank List:");
+        for (int i = 0; i < students.length; i++) {
+            System.out.print("Rank " + (i + 1) + ": ");
+            students[i].show();
         }
+
+        // Display total students
+        System.out.println();
+        showCount();
+
+        // Compare two students
+        System.out.println();
+        students[0].compare(students[1]);
     }
 }
