@@ -13,11 +13,11 @@ class Circle implements Shape {
     Circle(double r) { this.radius = r; }
 
     public void area() {
-        System.out.println("Area of Circle: " + (3.14 * radius * radius));
+        System.out.println("Area of Circle: " + (Math.PI * radius * radius));
     }
 
     public void perimeter() {
-        System.out.println("Perimeter of Circle: " + (2 * 3.14 * radius));
+        System.out.println("Perimeter of Circle: " + (2 * Math.PI * radius));
     }
 }
 
