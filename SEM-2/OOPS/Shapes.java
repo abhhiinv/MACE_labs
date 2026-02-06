@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // 1. Define the Interface
@@ -47,8 +48,14 @@ public class Shapes {
             System.out.println("\n--- Geometry Menu ---");
             System.out.println("1. Circle\n2. Rectangle\n3. Exit");
             System.out.print("Choice: ");
-            int choice = sc.nextInt();
-
+            int choice;
+            try{
+                choice = sc.nextInt(); // This might crash if input is "abc"
+            }catch (InputMismatchException e) {
+                System.out.println("Error: Please enter a valid number!");
+                sc.next(); // CRITICAL: Clear the junk from the scanner's buffer
+                continue;
+            }
             if (choice == 3) break;
 
             Shape s = null; // Interface reference
@@ -66,9 +73,10 @@ public class Shapes {
                     System.out.println("Invalid choice!");
                     continue;
             }
-
-            s.area();
-            s.perimeter();
+            if(s != null){
+                s.area();
+                s.perimeter();
+            }
         }
         sc.close();
     }
