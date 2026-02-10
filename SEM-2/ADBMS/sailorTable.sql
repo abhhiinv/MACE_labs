@@ -34,4 +34,4 @@ insert into Reserves values(31,104,'11-dec-1998');
 insert into Reserves values(64,101,'09-may-1998');
 insert into Reserves values(64,102,'09-aug-1998');
 insert into Reserves values(74,103,'09-may-1998');
-select * from Boat;
+select * from Boats;
