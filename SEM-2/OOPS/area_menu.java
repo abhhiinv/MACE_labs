@@ -28,18 +28,18 @@ class rectangle implements i{
 	public void get()
 	{
 		Scanner scan =new Scanner(System.in);
-		System.out.println("enter the length:");
+		System.out.print("enter the length:");
 		l=scan.nextInt();
-		System.out.println("enter the breadth:");
+		System.out.print("enter the breadth:");
 		b=scan.nextInt();
 	}
 	public void area()
 	{
-		System.out.println("area of rectangle:"+l*b);
+		System.out.print("area of rectangle:"+l*b);
 	}
 	public void perimeter()
 	{
-		System.out.println("perimeter of rectangle:"+2*(l+b));
+		System.out.print("perimeter of rectangle:"+2*(l+b));
 	}	
 }
 
