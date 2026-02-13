@@ -49,13 +49,13 @@ class area_menu{
 		circle c=new circle();
 		rectangle r=new rectangle();
 		int ch;
-		Scanner scan =new Scanner(System.in);
+		Scanner sc =new Scanner(System.in);
 		c.get();
 		r.get();
 		while(true)
 		{
 			System.out.println("menu\n1.area of circle\n2.area of rectangle\n3.perimeter of circle\n4.perimeter of rectangle\n5.exit\nenter your choice:");
-			ch=scan.nextInt();
+			ch=sc.nextInt();
 			switch(ch)
 			{
 			        case 1:{

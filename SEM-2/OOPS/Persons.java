@@ -59,5 +59,6 @@ public class Persons {
 
         System.out.println("\n--- Teacher Details ---");
         for (Teacher teacher : t) teacher.display();
+        sc.close();
     }
 }
