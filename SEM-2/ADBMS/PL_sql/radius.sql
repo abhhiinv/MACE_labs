@@ -1,9 +1,10 @@
 set SERVEROUTPUT on;
 declare
-radius number(10,2) := &radius;
-area NUMBER(20,2);
+radius number := &radius;
+area NUMBER;
+pi CONSTANT NUMBER := 3.14159;
 begin 
-area := 3.14*radius*radius;
+area := pi*radius*radius;
 dbms_output.put_line('Area of circle with radius '||radius||' is '||area);
 end;
 /
