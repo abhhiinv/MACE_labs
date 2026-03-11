@@ -1,11 +1,12 @@
 /*
 Find the average of N positive integers, 
 raising a user defined exaception for each negative input
-*/
+ */
 import java.util.*;
 
 // User-defined exception for negative numbers
 class NegativeNumberException extends Exception {
+
     public NegativeNumberException(int number) {
         super("Invalid input: " + number + " is a negative number. Only positive integers allowed.");
     }
@@ -39,18 +40,14 @@ public class excep_numcheck {
                 validCount++;
             } catch (NegativeNumberException e) {
                 System.out.println("Exception caught -> " + e.getMessage());
+                i--; // re-prompt for the same position
             }
         }
 
-        if (validCount > 0) {
-            double average = (double) sum / validCount;
-            System.out.println("\nSum of valid inputs     : " + sum);
-            System.out.println("Count of valid inputs   : " + validCount);
-            System.out.printf("Average of valid inputs : %.2f%n", average);
-        } else {
-            System.out.println("No valid positive integers were entered.");
-        }
-
+        double average = (double) sum / validCount;
+        System.out.println("\nSum of valid inputs     : " + sum);
+        System.out.printf("Average of valid inputs : %.2f%n", average);
+        
         sc.close();
     }
 }
