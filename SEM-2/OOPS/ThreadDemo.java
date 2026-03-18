@@ -1,5 +1,5 @@
 /*
-Wite a java program that creates two threads to perform the following:
+Write a java program that creates two threads to perform the following:
     Thread A(Extending Thread):Print the squares of numbers from 1 to 10 with a delay of 500ms between each print
     Thread B(Implementing Runnable):Print the cubes of numbers from 1 to 10 with a delay of 700ms between each print.
 Main Thread must ensure that the message "Calculations Complete!" 
