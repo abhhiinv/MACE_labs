@@ -22,32 +22,30 @@ public class excep_numcheck {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try(Scanner sc = new Scanner(System.in)){
+            System.out.print("Enter the count of numbers (N): ");
+            int n = sc.nextInt();
 
-        System.out.print("Enter the count of numbers (N): ");
-        int n = sc.nextInt();
+            int sum = 0;
+            int validCount = 0;
 
-        int sum = 0;
-        int validCount = 0;
+            for (int i = 1; i <= n; i++) {
+                System.out.print("Enter number " + i + ": ");
+                int input = sc.nextInt();
 
-        for (int i = 1; i <= n; i++) {
-            System.out.print("Enter number " + i + ": ");
-            int input = sc.nextInt();
-
-            try {
-                int validNumber = checkPositive(input);
-                sum += validNumber;
-                validCount++;
-            } catch (NegativeNumberException e) {
-                System.out.println("Exception caught -> " + e.getMessage());
-                i--; // re-prompt for the same position
+                try {
+                    int validNumber = checkPositive(input);
+                    sum += validNumber;
+                    validCount++;
+                } catch (NegativeNumberException e) {
+                    System.out.println("Exception caught -> " + e.getMessage());
+                    i--; // re-prompt for the same position
+                }
             }
-        }
 
-        double average = (double) sum / validCount;
-        System.out.println("\nSum of valid inputs     : " + sum);
-        System.out.printf("Average of valid inputs : %.2f%n", average);
-        
-        sc.close();
+            double average = (double) sum / validCount;
+            System.out.println("\nSum of valid inputs     : " + sum);
+            System.out.printf("Average of valid inputs : %.2f%n", average);
+        }
     }
 }
