@@ -58,7 +58,7 @@ class PGStudent extends Student implements Showable {
     }
 }
 
-public class PGstudent {
+public class PGStudentDemo {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
