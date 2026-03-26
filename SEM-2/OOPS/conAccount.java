@@ -1,3 +1,5 @@
+// Create an Account class with a balance attribute. Allow 2 users to access the shared account. While a user deposits to the
+// account the other user withdraws money. Write a program that allows concurrent account transactions.
 class Account {
     private double balance = 0;
 
