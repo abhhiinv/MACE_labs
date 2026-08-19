@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_login_register.xml
+    RelativeLayout demo — notice how every measurement uses dp (density-independent
+    pixels) for sizes/margins/padding, and sp (scale-independent pixels) for text.
+
+    dp  → scales with screen density so buttons/margins look the same physical size
+          on every device.
+    sp  → like dp but also respects the user's font-size accessibility setting, so
+          always use sp for textSize and nothing else.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <!-- App title — 28sp so it scales with user font preferences -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Create Account"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1A1A1A" />
+
+    <!-- Full Name field — anchored below the title with 24dp gap -->
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="24dp"
+        android:hint="Full Name"
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#1A1A1A"
+        android:textColorHint="#9E9E9E" />
+
+    <!-- Email field -->
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/et_name"
+        android:layout_marginTop="16dp"
+        android:hint="Email Address"
+        android:textSize="16sp"
+        android:inputType="textEmailAddress"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#1A1A1A"
+        android:textColorHint="#9E9E9E" />
+
+    <!-- Gender label -->
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_email"
+        android:layout_marginTop="20dp"
+        android:text="Gender"
+        android:textSize="14sp"
+        android:textColor="#555555" />
+
+    <!--
+        RadioGroup + RadioButtons inside a RelativeLayout:
+        the group itself is placed relative to tv_gender,
+        and each RadioButton is laid out horizontally via layout_toRightOf.
+    -->
+    <RadioGroup
+        android:id="@+id/rg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_gender"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Male"
+            android:textSize="15sp"
+            android:textColor="#1A1A1A"
+            android:paddingStart="8dp" />
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Female"
+            android:textSize="15sp"
+            android:textColor="#1A1A1A"
+            android:paddingStart="8dp" />
+    </RadioGroup>
+
+    <!--
+        Login button — width is match_parent so it stretches edge to edge
+        within the parent's 24dp padding. Height is a fixed 48dp (comfortable
+        tap target; Google recommends minimum 48dp for interactive elements).
+    -->
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/rg_gender"
+        android:layout_marginTop="28dp"
+        android:text="Log In"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF" />
+
+    <!-- Sign Up button — sits 12dp below Login, same size for visual consistency -->
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="12dp"
+        android:text="Sign Up"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#E8EAF6"
+        android:textColor="#3F51B5" />
+
+    <!-- Footer note — pinned to the bottom of the screen with alignParentBottom -->
+    <TextView
+        android:id="@+id/tv_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="By continuing you agree to our Terms"
+        android:textSize="12sp"
+        android:textColor="#9E9E9E" />
+
+</RelativeLayout>

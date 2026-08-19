@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_profile.xml
+    Shown after login/signup. The avatar ImageView src is set in Java/Kotlin
+    based on the gender the user selected:
+
+        if (isMale) binding.ivAvatar.setImageResource(R.drawable.avatar_male)
+        else        binding.ivAvatar.setImageResource(R.drawable.avatar_female)
+
+    Expected drawables:
+        res/drawable/avatar_male.png   (or .webp / .xml — rename as needed)
+        res/drawable/avatar_female.png
+
+    dp vs sp recap shown in-context via comments below.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!--
+        Card-like white panel, centred vertically and horizontally.
+        paddingTop/Bottom/Start/End all in dp — physical sizes stay
+        consistent across screen densities.
+    -->
+    <RelativeLayout
+        android:id="@+id/panel_profile"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="32dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <!--
+            Avatar image — 96dp × 96dp is a common profile photo size.
+            Using dp keeps it the same apparent diameter on a 160 dpi MDPI phone
+            and a 480 dpi XXHDPI phone.
+            The actual src is set in code at runtime.
+        -->
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/male"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:contentDescription="User avatar" />
+
+        <!--
+            Display name — 20sp so it honours the user's font-size setting.
+            layout_below + marginTop=16dp gives breathing room under the avatar.
+        -->
+        <TextView
+            android:id="@+id/tv_display_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Abhinav"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A" />
+
+        <!-- Email shown in a smaller sp size — secondary info -->
+        <TextView
+            android:id="@+id/tv_display_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_display_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="abhinav@example.com"
+            android:textSize="14sp"
+            android:textColor="#757575" />
+
+        <!-- Gender badge — small pill-style label -->
+        <TextView
+            android:id="@+id/tv_display_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_below="@id/tv_display_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Male"
+            android:textSize="13sp"
+            android:textColor="#3F51B5"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center"/>
+
+        <!-- Log Out button — 48dp tall, full width of the inner panel -->
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/tv_display_gender"
+            android:layout_marginTop="24dp"
+            android:text="Log Out"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#EF5350"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+    <!--
+        Screen title pinned to the top of the screen — NOT inside the card panel.
+        layout_alignParentTop + marginTop uses dp for the spacing.
+    -->
+    <TextView
+        android:id="@+id/tv_screen_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="My Profile"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5" />
+
+</RelativeLayout>
