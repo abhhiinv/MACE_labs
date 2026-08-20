@@ -1,3 +1,5 @@
 .vscode
 *.class
 *.dat
+.venv
+venv
